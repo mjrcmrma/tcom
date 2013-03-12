@@ -1,26 +1,27 @@
 <?php
 
 class Usuario_model extends CI_Model {
-
+    //NOTA: TODOS LAS FUNCIONES DE TODOS LOS MODELOS DEVUELVEN EL RESULTADO DEL QUERY EN UN ARRAY
     function construct()
     {
         parent::__construct();
     }
-
-    function get_idUsuario_nombreUsuario_by_correo_contrasena($correo, $contrasenia)
+    //Realiza un query para obtener el ID y El nombre del usuario por su correo y contraseña 
+    function get_idUsuario_nombreUsuario_by_correo_contrasena($correo, $contrasena)
     {
         $query = $this->db->query("SELECT distinct t.TipoUsuario, p.idUsuario, CONCAT(p.nombrePersona, ' ', p.apellidoPatPersona, ' ', p.apellidoMatPersona) as usuario
             FROM usuarios u left join personas p ON u.idUsuario = p.idUsuario,
             usuarios us left join tipos t ON us.idTipoUsuario = t.idTipoUsuario
-            WHERE u.correoUsuario = '$correo' AND u.contrasenia = '$contrasenia'");
+            WHERE u.correoUsuario = '$correo' AND u.contrasena = '$contrasena'");
         if($query->result_array()){
             $r = $query->result_array();
         }
         else $r = false;
         return $r;
     }
-    function get_idUsuario_by_correo_contrasena($correo, $contrasenia){
-        $query = $this->db->get_where("usuarios", array('correoUsuario' => $correo, 'contrasenia' => $contrasenia));
+    //Realiza un query que obtiene el ID del usuario por su correo y contraseña
+    function get_idUsuario_by_correo_contrasena($correo, $contrasena){
+        $query = $this->db->get_where("usuarios", array('correoUsuario' => $correo, 'contrasena' => $contrasena));
         $row = $query->row_array();
         if($query->num_rows()){
             return $row['idUsuario'];
@@ -28,11 +29,11 @@ class Usuario_model extends CI_Model {
             return false;
         }
     }
-    
+    //REaliza un query que devuelve el tipo de usuario y su nombre concatenado
     function get_usuario_by_idUsuario($idusuario){
-        $query = $this->db->query("SELECT distinct t.tipoUsuario, CONCAT(p.nombrePersona, ' ', p.apellidoPatPersona, ' ', p.apellidoMatPersona) as usuario
+        $query = $this->db->query("SELECT distinct t.tipo, CONCAT(p.nombrePersona, ' ', p.apellidoPatPersona, ' ', p.apellidoMatPersona) as usuario
             FROM usuarios u left join personas p ON u.idUsuario = p.idUsuario,
-            usuarios us left join tipos t ON us.idTipoUsuario = t.idTipoUsuario
+            usuarios us left join tipoUsuarios t ON us.idTipo = t.idTipo
             WHERE u.idUsuario = '$idusuario'");
         if($query->row_array()){
             $r = $query->row_array();
@@ -40,19 +41,19 @@ class Usuario_model extends CI_Model {
         else $r = false;
         return $r;
     }
-    
+    //Devuelve el tipo de usuario solo por el ID del usuario
     function get_tipoUsuario_by_idUsuario($idusuario){
-        $query = $this->db->query("SELECT distinct t.tipoUsuario
-            FROM usuarios u left join tipos t ON u.idTipoUsuario = t.idTipoUsuario
+        $query = $this->db->query("SELECT distinct t.tipo
+            FROM usuarios u left join tipoUsuarios t ON u.idTipo = t.idTipo
             WHERE u.idUsuario = '$idusuario'");
         $row = $query->row_array();
         if($query->num_rows()){
-            return $row['tipoUsuario'];
+            return $row['tipo'];
         } else {
             return false;
         }
     }
-        
+    //Realiza un query para obtener los datos de todos los usuarios
     function get_usuarios(){
         $query = $this->db->query("SELECT CONCAT(p.nombrePersona, ' ', p.apellidoPatPersona, ' ', p.apellidoMatPersona) as usuario, t.tipoUsuario
             FROM usuarios u 
@@ -64,4 +65,6 @@ class Usuario_model extends CI_Model {
             return false;
         }
     }
+    
+    
 }

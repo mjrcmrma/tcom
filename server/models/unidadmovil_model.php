@@ -7,13 +7,8 @@ class Unidadmovil_model extends CI_Model {
         parent::__construct();
     }
 
-    function set_unidadMovil($idusuario, $post)
+    function set_unidadMovil($post)
     {
-        $data = array(
-            "idUsuario" => $idusuario,
-            "descripcionMovil" => $post['descripcionMovil'],
-            "placas" => $post['placas']
-        );
-        $this->db->insert("unidadesMoviles", $data);
+        $this->db->insert("unidadesMoviles", $post);
     }
 }
