@@ -11,7 +11,7 @@ class Usuario_model extends CI_Model {
     {
         $query = $this->db->query("SELECT distinct t.tipo, p.idUsuario, CONCAT(p.nombrePersona, ' ', p.apellidoPatPersona, ' ', p.apellidoMatPersona) as usuario
             FROM usuarios u left join personas p ON u.idUsuario = p.idUsuario,
-            usuarios us left join tipos t ON us.idTipo = t.idTipo
+            usuarios us left join tipousuarios t ON us.idTipo = t.idTipo
             WHERE u.correoUsuario = '$correo' AND u.contrasena = '$contrasena'");
         if($query->result_array()){
             $r = $query->result_array();
@@ -55,16 +55,15 @@ class Usuario_model extends CI_Model {
     }
     //Realiza un query para obtener los datos de todos los usuarios
     function get_usuarios(){
-        $query = $this->db->query("SELECT CONCAT(p.nombrePersona, ' ', p.apellidoPatPersona, ' ', p.apellidoMatPersona) as usuario, t.tipoUsuario
+        $query = $this->db->query("SELECT CONCAT(p.nombrePersona, ' ', p.apellidoPatPersona, ' ', p.apellidoMatPersona) as usuario, t.tipo
             FROM usuarios u 
                 left join personas p ON u.idUsuario = p.idUsuario
-                left join tipos t ON u.idTipoUsuario = t.idTipoUsuario GROUP BY u.idUsuario");
+                left join tipousuarios t ON u.idTipo = t.idTipo GROUP BY u.idUsuario");
         if($query->num_rows()){
             return $query->result_array();
         } else {
             return false;
         }
     }
-    
     
 }
