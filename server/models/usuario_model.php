@@ -33,7 +33,7 @@ class Usuario_model extends CI_Model {
     function get_usuario_by_idUsuario($idusuario){
         $query = $this->db->query("SELECT distinct t.tipo, CONCAT(p.nombrePersona, ' ', p.apellidoPatPersona, ' ', p.apellidoMatPersona) as usuario
             FROM usuarios u left join personas p ON u.idUsuario = p.idUsuario,
-            usuarios us left join tipoUsuarios t ON us.idTipo = t.idTipo
+            usuarios us left join tipousuarios t ON us.idTipo = t.idTipo
             WHERE u.idUsuario = '$idusuario'");
         if($query->row_array()){
             $r = $query->row_array();
@@ -44,7 +44,7 @@ class Usuario_model extends CI_Model {
     //Devuelve el tipo de usuario solo por el ID del usuario
     function get_tipoUsuario_by_idUsuario($idusuario){
         $query = $this->db->query("SELECT distinct t.tipo
-            FROM usuarios u left join tipoUsuarios t ON u.idTipo = t.idTipo
+            FROM usuarios u left join tipousuarios t ON u.idTipo = t.idTipo
             WHERE u.idUsuario = '$idusuario'");
         $row = $query->row_array();
         if($query->num_rows()){

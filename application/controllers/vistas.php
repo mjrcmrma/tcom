@@ -54,7 +54,7 @@ class Vistas extends CI_Controller {
                     $this->load->view('vistas/login',$data);
                     $this->load->view('vistas/footer');
                 }
-                $this->rest->debug();
+//                $this->rest->debug();
         }
         public function login(){
             $this->load->view('vistas/header');
