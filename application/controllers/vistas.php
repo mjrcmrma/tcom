@@ -82,6 +82,9 @@ class Vistas extends CI_Controller {
         public function reportes_view(){
             $this->load->view('contador/reportes');
         }
+        public function mapa_view(){
+            $this->load->view('administrador/mapa_estado');
+        }
 
         //Condomino
         public function eventos_view(){

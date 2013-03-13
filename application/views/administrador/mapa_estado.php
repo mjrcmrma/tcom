@@ -45,4 +45,8 @@
     <area href="#" shape="RECT" coords="168,71,312,143" title="Manzana 10" />
     <area href="#" shape="CIRCLE" coords="132,138,37" title="This is the tooltip." />
     <area href="#" shape="POLYGON" coords="277,17,326,104,234,110" title="This is the tooltip." />
+    
+    <area href="#" shape="POLYGON" coords="445,686,444,697,442,706,456,706,468,705,470,688,472,673,458,672,453,679" title="This is the tooltip." />
+    <area href="#" shape="POLYGON" coords="474,673,472,688,470,706,488,708,489,690,490,675" title="This is the tooltip." />
+    <area href="#" shape="POLYGON" coords="492,674,490,690,488,708,506,712,513,694,519,681,507,676" title="This is the tooltip." />
 </map>
