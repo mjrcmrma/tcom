@@ -1,36 +1,3 @@
-* { 
-    margin: 0; 
-    padding: 0; 
-}
-html { 
-    overflow-y: scroll; 
-}
-.group:after { 
-    visibility: hidden; 
-    display: block; 
-    font-size: 0; 
-    content: " "; 
-    clear: both; 
-    height: 0; 
-}
-.group { 
-    display: inline-block; 
-    clear: both; 
-}
-/* start commented backslash hack \*/ 
-* html .group { 
-    height: 1%; 
-} 
-.group { 
-    display: block; 
-} /* close commented backslash hack */
-article, aside, figure, footer, header, hgroup, menu, nav, section { 
-    display: block; 
-}
-a:focus { 
-    outline: 0; 
-}
-
 
 h1 { 
     font: bold 32px Helvetica, Arial, Sans-Serif; 
@@ -42,13 +9,14 @@ h1 {
 nav{
     position: relative;
     float: left;
-    top: 326px;
+    top: 10px;
 }
 nav ul { 
     list-style: none;
+    padding-left: 0px;
 }
 nav ul li {
     width: 312px;
     height: 53px; 
     margin-top: 4px;
-}	
+}
