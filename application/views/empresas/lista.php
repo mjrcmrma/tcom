@@ -7,6 +7,7 @@
 <script type="text/javascript" charset="utf-8">
     var url_borrar = "<?php echo site_url(array("empresas", "borrar")) ?>";
     var url_editar = "<?php echo site_url(array("empresas","editar")) ?>";
+    
 </script>
 <script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>js/abc.js"></script>
 <style>
@@ -71,6 +72,10 @@
         font-weight: bold;
         background-color: #D1E6D2;
         border: 1px solid #245C26;
+    }
+    
+    #tbl{
+        clear: both;
     }
 </style>
 <div class="inner">
