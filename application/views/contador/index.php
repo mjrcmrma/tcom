@@ -66,6 +66,11 @@
                     CambiarCobra();
                     $("#main-content").load("<?php echo base_url();?>index.php/vistas/conceptos_view");
                 });
+                $("#condominos").click(function(){
+                    Cambiar(); 
+                    CambiarCobra();
+                    $("#main-content").load("<?php echo base_url();?>index.php/vistas/mapa_view");
+                });
         });
 </script>
 <style>
