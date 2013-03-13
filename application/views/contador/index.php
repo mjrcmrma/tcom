@@ -210,6 +210,16 @@
     #base{
         background: url('<?php echo base_url();?>/img/base.png') no-repeat;
     }
+    #condominos{
+        cursor: pointer;
+        background-image: url("<?php echo base_url();?>/img/btn_condomino.png");
+        background-repeat:no-repeat; 
+    }
+    #condominos:hover{
+        cursor: pointer;
+        background-image: url("<?php echo base_url();?>/img/btn_active_condomino.png");
+        background-repeat:no-repeat; 
+    }
     #usuario{
         left: 340px;
         position: relative;
@@ -238,6 +248,7 @@
                <li id="base"></li>
            </ul>
        </div>
+        <li id="condominos"></li>
         <li id="conceptos"></li>
         <li id="ocompra"></li>
         <li id="camaras"></li>
