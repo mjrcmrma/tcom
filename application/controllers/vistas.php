@@ -31,7 +31,7 @@ class Vistas extends CI_Controller {
                         case 'Seguridad':
                             $this->load->view('seguridad/index', $data);
                             break;
-                        case 'Contador':
+                        case 'Administrador':
                             $this->load->view('contador/index', $data);
                             break;
                         case 'Condomino':
@@ -54,6 +54,7 @@ class Vistas extends CI_Controller {
                     $this->load->view('vistas/login',$data);
                     $this->load->view('vistas/footer');
                 }
+                $this->rest->debug();
         }
         public function login(){
             $this->load->view('vistas/header');
