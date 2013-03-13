@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://10.10.253.252/tcom';
+$config['base_url']	= 'http://localhost/tcom';
 
 /*
 |--------------------------------------------------------------------------

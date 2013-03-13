@@ -55,7 +55,7 @@ class REST
 		
 		*/
 		$this->_ci->load->library('curl');
-                $this->rest_server = "http://agenciaunica.com/tcom/";
+                $this->rest_server = "http://localhost/tcom/";
 		
 		// Load the cURL spark which this is dependant on
 //		$this->_ci->load->spark('curl/1.2.1');
@@ -80,7 +80,7 @@ class REST
 //			$this->rest_server .= '/';
 //		}
 //        } else {
-            $this->rest_server = "http://agenciaunica.com/tcom/";
+            $this->rest_server = "http://localhost/tcom/";
 //        }
 
 		isset($config['http_auth']) && $this->http_auth = $config['http_auth'];
