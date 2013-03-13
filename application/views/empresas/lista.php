@@ -5,59 +5,11 @@
 </style>
 <script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>media/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf-8">
-    var url_editar = "<?php echo site_url(array("empresas", "editar")) ?>";
     var url_borrar = "<?php echo site_url(array("empresas", "borrar")) ?>";
-    $(document).ready(function() {
-        $('#tbl').dataTable({
-            "oLanguage": {
-                "sUrl": "media/espaniol.txt"
-            }
-        });
-                                
-        $("#btn_nuevo").click(function(){
-            $("#nuevo").toggle("blind");
-            if($("#nuevo").is(":visible"))
-                $(this).hide("blind");
-        });
-                                
-        $("#form_nuevo").submit(function(){
-            $.post(this.action, $(this).serialize()).done(function(id){
-                $("#aviso_ok .aviso_contenido").html('La empresa se ha guardado correctamente');
-                var data = new Array();
-                var fields = $("#form_nuevo").serializeArray();
-                                        
-                jQuery.each(fields, function(i, field){
-                    data.push(field.value);
-                });
-                var btns = '<a href="' + url_editar + '/' + id + '"><img src="<?php echo base_url() ?>img/edit-icon.png" width="18"></a> <a href="' + url_borrar + '/' + id + '" class="tbl_delete_row"><img src="<?php echo base_url() ?>img/delete-icon.png" width="18"></a>';
-                data.push(btns);
-                $('#tbl').dataTable().fnAddData(data);
-                $("#form_nuevo").get(0).reset();
-                $('#aviso_ok').slideDown(600).delay(2000).slideUp(500);
-                $("#nuevo").hide("blind");
-                $("#btn_nuevo").show("blind");
-            });
-                                    
-            return false;
-        });
-                                
-        $(".tbl_delete_row").on('click',function(e){
-            e.preventDefault();
-            if(confirm('Esta seguro de eliminar este registro?')){
-                var row = $(this).closest("tr").get(0);
-                $('#tbl').dataTable().fnDeleteRow($('#tbl').dataTable().fnGetPosition(row));
-            }
-        });
-    } );
+    var url_editar = "<?php echo site_url(array("empresas","editar")) ?>";
     
-    $(document).on("click", ".tbl_delete_row", function(e){
-            e.preventDefault();
-            if(confirm('Esta seguro de eliminar este registro?')){
-                var row = $(this).closest("tr").get(0);
-                $('#tbl').dataTable().fnDeleteRow($('#tbl').dataTable().fnGetPosition(row));
-            }
-        });
 </script>
+<script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>js/abc.js"></script>
 <style>
     .inner{
         padding: 5px;
@@ -121,6 +73,10 @@
         background-color: #D1E6D2;
         border: 1px solid #245C26;
     }
+    
+    #tbl{
+        clear: both;
+    }
 </style>
 <div class="inner">
     <button id="btn_nuevo">Nueva Empresa</button>
@@ -142,16 +98,16 @@
                 <th>Nombre</th>
                 <th>Dirección</th>
                 <th>RFC</th>
-                <th>Opciones</th>
+                <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($empresas as $e): ?>
-                <tr>
-                    <td><?php echo $e["nombreEmpresa"] ?></td>
-                    <td><?php echo $e["direccionEmpresa"] ?></td>
-                    <td><?php echo $e["RFCEmpresa"] ?></td>
-                    <td><img src="<?php echo base_url() ?>img/edit-icon.png" width="18" /> <a href="<?php echo site_url(array("empresas", "borrar", $e["idEmpresa"])) ?>" class="tbl_delete_row" ><img src="<?php echo base_url() ?>img/delete-icon.png" width="18" /></a></td>
+                <tr idregistro="<?php echo $e["idEmpresa"]; ?>">
+                    <td campo="nombreEmpresa"><?php echo $e["nombreEmpresa"] ?></td>
+                    <td campo="direccionEmpresa"><?php echo $e["direccionEmpresa"] ?></td>
+                    <td campo="RFCEmpresa"><?php echo $e["RFCEmpresa"] ?></td>
+                    <td><a href="<?php echo site_url(array("empresas", "borrar", $e["idEmpresa"])) ?>" class="tbl_delete_row" ><img src="<?php echo base_url() ?>img/delete-icon.png" width="18" /></a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

@@ -5,6 +5,7 @@
         <title>T-COM</title>
         <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
         <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+        <script src="<?php echo base_url(); ?>js/jquery.jeditable.js"></script>
         <link href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" type="text/css" rel="Stylesheet" />
 <script>
     $(function(){

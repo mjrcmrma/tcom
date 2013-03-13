@@ -10,6 +10,7 @@ class Usuarios extends CI_Controller {
         //            $this->rest->api_key("android");        
         if ($this->input->post('correo') != null && $this->input->post('contrasena') != null) {
             $data['idUsuario'] = $this->rest->post("server.php/usuarios/idUsuario_by_correo_contrasena/", array('correo' => $this->input->post('correo'), "contrasena" => $this->input->post('contrasena')), 'json');
+//            $this->rest->debug();
             if ($data["idUsuario"] > 0) {
                 $this->session->set_userdata("idUsuario", $data["idUsuario"]);
             } else {

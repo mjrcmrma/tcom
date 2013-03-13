@@ -1,7 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-
-
 class Vistas extends CI_Controller {
 //    public function __construct() {
 //        parent::__construct();
@@ -54,6 +52,7 @@ class Vistas extends CI_Controller {
                     $this->load->view('vistas/login',$data);
                     $this->load->view('vistas/footer');
                 }
+//                $this->rest->debug();
         }
         public function login(){
             $this->load->view('vistas/header');
@@ -82,6 +81,12 @@ class Vistas extends CI_Controller {
         }
         public function reportes_view(){
             $this->load->view('contador/reportes');
+        }
+        public function empresas_lista_view(){
+            $this->load->view('empresas/lista');
+        }
+        public function mapa_view(){
+            $this->load->view('administrador/mapa_estado');
         }
 
         //Condomino
