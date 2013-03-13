@@ -229,6 +229,7 @@
         background-image: url("<?php echo base_url();?>/img/btn_eventos_publicar_active.png");
         background-repeat:no-repeat; 
     }
+
     #usuario{
         left: 340px;
         position: relative;
@@ -254,13 +255,16 @@
        </div>
        <li id="reservaciones"></li>
        <li id="administracion"></li>
+       
        <li id="consulta"></li>
        <li id="navegador"></li>
        <li id="notificaciones"></li>
+       
        <a href="<?php echo base_url();?>index.php/usuarios/logout"><li id="salir"></li></a>   
     </ul>
 </nav>
 <section id="main-content">
+    
 </section>
 
 

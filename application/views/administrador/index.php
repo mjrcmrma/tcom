@@ -62,6 +62,16 @@
     #empresas{
         background: url('<?php echo base_url();?>/img/btn_empresas.png');
     }
+    #condominos{
+        cursor: pointer;
+        background-image: url("<?php echo base_url();?>/img/btn_eventos_condomino.png");
+        background-repeat:no-repeat; 
+    }
+    #condominos:hover{
+        cursor: pointer;
+        background-image: url("<?php echo base_url();?>/img/btn_active_condomino.png");
+        background-repeat:no-repeat; 
+    }
     #camaras{
         background: url('<?php echo base_url();?>/img/btn_camaras.png');
     }
@@ -71,11 +81,13 @@
         <li id="cobranza"></li>
         <li id="reportes"></li>
         <li id="empleados"></li>
+        <li id="condominos"></li>
         <li id="conceptos"></li>
         <li id="ocompra"></li>
         <li id="empresas"></li>
         <li id="camaras"></li>
     </ul>
 </nav>
+<span>AAAAAzzzzzzzzzzzzzz</span>
 <section id="main-content">
 </section>
