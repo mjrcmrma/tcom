@@ -19,9 +19,10 @@ class Vistas extends CI_Controller {
     //            $this->rest->api_key("android");
                 if($this->session->userdata("idUsuario") > 0){
                     $this->load->view('vistas/header');
-                    $data['u'] = (array)$this->rest->post("server.php/usuarios/usuario/", 
+                    $data['u'] = $this->rest->post("server.php/usuarios/usuario/", 
                         array('idUsuario'=> $this->session->userdata('idUsuario')),
                         'json');
+//                            echo $this->rest->debug();
                     $tipo = $this->rest->post("server.php/usuarios/tipo_usuario/", 
                         array('idUsuario'=> $this->session->userdata('idUsuario')),
                         'json');
@@ -83,10 +84,14 @@ class Vistas extends CI_Controller {
             $this->load->view('contador/reportes');
         }
         public function empresas_lista_view(){
-            $this->load->view('empresas/lista');
+            $this->load->model("abc_model");
+            $data["empresas"] = $this->abc_model->get("empresas");
+            $this->load->view('empresas/lista',$data);
         }
         public function mapa_view(){
-            $this->load->view('administrador/mapa_estado');
+            $this->load->model("abc_model");
+            $data["usuarios"] = $this->abc_model->get_UsuariosPersona();
+            $this->load->view('contador/condominos',$data);
         }
 
         //Condomino
