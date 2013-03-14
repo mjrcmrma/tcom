@@ -1,10 +1,13 @@
 
     $(document).ready(function() {
-        
         var oTable = $('#tbl').dataTable({
+            
             "oLanguage": {
                 "sUrl": "media/espaniol.txt"
             },
+            "sScrollX": "100%",
+		"sScrollXInner": "300%",
+		"bScrollCollapse": true,
             "fnDrawCallback": function( oSettings ) {
                 /* Apply the jEditable handlers to the table */
                 oTable.$('td').editable( url_editar, {
@@ -22,7 +25,8 @@
                     "height": "20px",
                     "width": "100%"
                 } );
-                
+               
+
                 /* Botón Eliminar */
                 $(".tbl_delete_row").off('click');
                 $(".tbl_delete_row").click(function(e){
