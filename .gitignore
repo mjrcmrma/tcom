@@ -8,6 +8,16 @@ nbproject/private/private.properties
 
 
 
+<<<<<<< HEAD
+=======
+server/config/database.php
+
+application/config/config.php
+
+application/config/database.php
+
+application/libraries/Rest.php
+>>>>>>> Alta de condominos
 /application/config/
 /application/libraries/
 /server/config/

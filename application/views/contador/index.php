@@ -29,7 +29,7 @@
                 
             $("#proveedores").click(function(){
             $("#ajax-loader").clone().appendTo("#main-content").show();
-               $("#main-content").load("<?php echo site_url(array("empresas"));?>");
+               $("#main-content").load("<?php echo base_url();?>/index.php/vistas/empresas_lista_view");
             });
                 
                 $("#reportes").click(function(){
@@ -232,7 +232,7 @@
     }
 </style>
 <div id="usuario">
-    <img src="<?php echo base_url();?>/img/welcome.png"/>&nbsp;&nbsp;<strong><?php echo $u['usuario'];?></strong>
+    <img src="<?php echo base_url();?>/img/welcome.png"/>&nbsp;&nbsp;<strong><?php echo var_dump($u);?></strong>
 </div>
 <nav>
     <ul>
@@ -261,4 +261,5 @@
     </ul>
 </nav>
 <section id="main-content">
+
 </section>

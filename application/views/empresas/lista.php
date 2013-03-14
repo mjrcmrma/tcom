@@ -9,6 +9,7 @@
     var url_editar = "<?php echo site_url(array("empresas","editar")) ?>";
     
 </script>
+
 <script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>js/abc.js"></script>
 <style>
     .inner{
@@ -92,7 +93,7 @@
     <div id="aviso_ok">
         <img src="<?php echo base_url() ?>img/ok.png" /> <span class="aviso_contenido">La empresa se ha guardado correctamente</span>
     </div>
-    <table id="tbl" width="100%" style="padding: 10px">
+    <table id="tbl" width="100%" style="padding: 10px; width: 50px;">
         <thead>
             <tr>
                 <th>Nombre</th>
