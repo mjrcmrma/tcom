@@ -9,9 +9,9 @@ class Usuario_model extends CI_Model {
     //Realiza un query para obtener el ID y El nombre del usuario por su correo y contraseña 
     function get_idUsuario_nombreUsuario_by_correo_contrasena($correo, $contrasena)
     {
-        $query = $this->db->query("SELECT distinct t.tipo, p.idUsuario, CONCAT(p.nombrePersona, ' ', p.apellidoPatPersona, ' ', p.apellidoMatPersona) as usuario
-            FROM usuarios u left join personas p ON u.idUsuario = p.idUsuario,
-            usuarios us left join tipousuarios t ON us.idTipo = t.idTipo
+        $query = $this->db->query("SELECT DISTINCT t.tipo, u.idUsuario, CONCAT(p.nombrePersona, ' ', p.apellidoPatPersona, ' ', p.apellidoMatPersona) AS usuario
+            FROM usuarios u LEFT JOIN personas p ON u.idPersona = p.idPersona,
+            usuarios us LEFT JOIN tipousuarios t ON us.idTipo = t.idTipo
             WHERE u.correoUsuario = '$correo' AND u.contrasena = '$contrasena'");
         if($query->result_array()){
             $r = $query->result_array();
