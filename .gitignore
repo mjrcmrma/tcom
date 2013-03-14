@@ -8,7 +8,21 @@ nbproject/private/private.properties
 
 
 
+<<<<<<< HEAD
 /application/config/
 /application/libraries/
 /server/config/
 /server/libraries/
+=======
+server/config/database.php
+
+application/config/config.php
+
+application/config/database.php
+
+application/libraries/Rest.php
+/application/cache/
+/application/config/
+/application/core/
+fotos/tmp/*
+>>>>>>> Subir Empleado foto
