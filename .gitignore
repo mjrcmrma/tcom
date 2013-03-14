@@ -2,22 +2,13 @@ nbproject/
 .DS_Store
 nbproject/private/private.properties
 
-application/config/config.php
 
-application/config/database.php
 
-application/libraries/Rest.php
 
-server/config/config.php
 
-server/config/database.php
 
-server/config/config.php
 
-server/config/database.php
-
-application/config/config.php
-
-application/config/database.php
-
-application/libraries/Rest.php
+/application/config/
+/application/libraries/
+/server/config/
+/server/libraries/
