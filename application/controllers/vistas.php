@@ -88,6 +88,11 @@ class Vistas extends CI_Controller {
             $data["empresas"] = $this->abc_model->get("empresas");
             $this->load->view('empresas/lista',$data);
         }
+        public function asignar_view($a){
+            $data['a'] = $a;
+            $this->load->view('contador/asignarLote', $data);
+        }
+
         public function mapa_view(){
             $this->load->model("abc_model");
             $data["usuarios"] = $this->abc_model->get_UsuariosPersona();
