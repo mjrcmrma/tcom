@@ -1,7 +1,7 @@
 nbproject/
 .DS_Store
 nbproject/private/private.properties
-
+fotos/tmp/*
 
 
 
@@ -22,3 +22,6 @@ application/libraries/Rest.php
 /application/libraries/
 /server/config/
 /server/libraries/
+fotos/tmp/14f06772a3952f7277267db4c31bd242.png
+
+fotos/tmp/2b976a4b95b5aef689786b77a44e3473.png
