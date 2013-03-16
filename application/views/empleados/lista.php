@@ -17,7 +17,7 @@ $(function(){
        $("#userfile").click();
        return false;
    });
-   $("#userfile").change(function(){
+   $("body").delegate('#userfile','change',function(){
        $.ajaxFileUpload({
         url         :$('#form_foto').attr("action"), 
         secureuri      :false,
@@ -129,7 +129,6 @@ $(function(){
 </style>
 <div class="inner">
    <button id="btn_nuevo">Nuevo Prestador de Servicio</button>
-               <div class="title">Complete el formulario para registrar el prestador de servicio</div>
    <div id="nuevo">
                <div class="title">Complete el formulario para registrar el prestador de servicio</div>
        <div class="inner_form">
@@ -144,6 +143,12 @@ $(function(){
                <div class="label"><label>Teléfono Celular</label></div>    <div class="campo clearfix"><input type="text" name="celularPersona" /></div>
                <div class="label"><label>Extención</label></div>           <div class="campo clearfix"><input type="text" name="extensionPersona" /></div>
                <div class="label"><label>Correo Electrónico</label></div>  <div class="campo clearfix"><input type="email" name="correoPersona" /></div>
+               <div class="label"><label>Empresa</label></div>  <div class="campo clearfix">
+                   <select name="idEmpresa">
+            <?php foreach ($empresas as $e): ?>
+                       <option value="<?php echo $e["idEmpresa"] ?>"><?php echo $e["nombreEmpresa"] ?></option>
+                       <?php endforeach; ?>
+                   </select></div>
                <div class="label">&nbsp;</div><div class="label"><input type="submit" class="submit" /></div>
            </form>
        </div>
