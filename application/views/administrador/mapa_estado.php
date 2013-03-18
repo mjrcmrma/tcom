@@ -7,12 +7,13 @@
        	$('.map').maphilight({
             fade: false
         }); 
-        var dialog_compartir = $("<div />");
+        var dialog_compartir = $("<div id='loteDialog' tittle='Asignación de Lote'/>");
         dialog_compartir.dialog({
                                 autoOpen: false,
-                                height: 400,
-                                width: 400,
-                                modal: true
+                                height: 600,
+                                width: 900,
+                                modal: true,
+                                position: 'top' 
                         });
             $( ".lote" ).click(function() {
                                         dialog_compartir.dialog( "open" );
@@ -70,7 +71,7 @@
         <?php elseif ($l['estado'] == 2): ?>
             <area class="lote" class="{strokeColor: 'ffff00',fillColor:'ffff00'}" href="<?php echo base_url(); ?>index.php/lotes/loteVer/<?php echo $l['idLote'];?>" shape="POLYGON" coords="<?php echo $l['coordenadas'];?>" title="<?php echo $l['lote'];?>"/>
         <?php else: ?>
-            <area class="lote" onmouseover="ctx.scale(2, 2);" href="<?php echo base_url(); ?>index.php/lotes/loteVer/<?php echo $l['idLote'];?>" shape="POLYGON" coords="<?php echo $l['coordenadas'];?>" title="<?php echo $l['lote'];?>"/>
+            <area class="lote" href="<?php echo base_url(); ?>index.php/lotes/loteVer/<?php echo $l['idLote'];?>" shape="POLYGON" coords="<?php echo $l['coordenadas'];?>" title="<?php echo $l['lote'];?>"/>
         <?php endif;?>
     <?php endforeach; ?>
 </map>
