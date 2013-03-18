@@ -5,6 +5,11 @@ if (!defined('BASEPATH'))
 
 class Empresas extends CI_Controller {
 
+    public function index(){
+        $this->load->model("abc_model");
+        $data["empresas"] = $this->abc_model->get("empresas"); 
+        $this->load->view('empresas/lista', $data);
+    }
     
     public function nueva(){
         $this->load->model("abc_model");
