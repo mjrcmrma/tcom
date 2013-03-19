@@ -1,6 +1,8 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>css/style.css" />
 <script>
         $(function() {
+            var id = "<?php echo $this->session->userdata("idUsuario");?>";
+            
             function Cambiar(){
                 $(".emergente").removeClass('visible');
                 $(".emergente").hide("blind");
@@ -69,7 +71,14 @@
                 $("#condominos").click(function(){
                     Cambiar(); 
                     CambiarCobra();
+                    
                     $("#main-content").load("<?php echo base_url();?>index.php/vistas/mapa_view");
+                });
+                $("#notificaciones").click(function(){
+                    Cambiar(); 
+                    CambiarCobra();
+                    
+                    $("#main-content").load("<?php echo base_url();?>index.php/vistas/notificacionesA_view/"+id);
                 });
         });
 </script>
@@ -225,6 +234,16 @@
         background-image: url("<?php echo base_url();?>/img/btn_active_condomino.png");
         background-repeat:no-repeat; 
     }
+    #notificaciones{
+        cursor: pointer;
+        background-image: url("<?php echo base_url();?>/img/btn_notificacionesAdministrador.png");
+        background-repeat:no-repeat; 
+    }
+    #notificaciones:hover{
+        cursor: pointer;
+        background-image: url("<?php echo base_url();?>/img/btn_active_notificacionesAdministrador.png");
+        background-repeat:no-repeat; 
+    }
     #usuario{
         left: 340px;
         position: relative;
@@ -257,6 +276,7 @@
         <li id="conceptos"></li>
         <li id="ocompra"></li>
         <li id="camaras"></li>
+        <li id="notificaciones"></li>
         <a href="<?php echo base_url();?>index.php/usuarios/logout"><li id="salir"></li></a>
     </ul>
 </nav>

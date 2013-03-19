@@ -22,6 +22,7 @@ class Vistas extends CI_Controller {
                     $data['u'] = $this->rest->post("server.php/usuarios/usuario/", 
                         array('idUsuario'=> $this->session->userdata('idUsuario')),
                         'json');
+                    
 //                            echo $this->rest->debug();
                     $tipo = $this->rest->post("server.php/usuarios/tipo_usuario/", 
                         array('idUsuario'=> $this->session->userdata('idUsuario')),
@@ -94,6 +95,11 @@ class Vistas extends CI_Controller {
             $data["usuarios"] = $this->usuario_model->get_UsuariosPersona();
             $this->load->view('contador/condominos',$data);
         }
+        public function notificacionesA_view($id){
+            $this->load->model("mensaje_model");
+            $data["mensajes"] = $this->mensaje_model->get_where($id);
+            $this->load->view('contador/notificaciones',$data);
+        }
 
         //Condomino
         public function eventos_view(){
@@ -131,6 +137,8 @@ class Vistas extends CI_Controller {
             $this->load->view('condomino/eventos/publicar');
         }
         
+
+
         //Seguridad
         public function navegadorS_view(){
             $this->load->view('seguridad/navegacionSeguridad');
