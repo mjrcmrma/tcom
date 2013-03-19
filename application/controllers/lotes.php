@@ -13,7 +13,9 @@ class Lotes extends CI_Controller {
    
    function loteVer($id){
        $this->load->model("lote_model");
+       $this->load->model("usuario_model");
        $data['lotes'] = $this->lote_model->get_lote_by_id($id);
+       $data["usuarios"] = $this->usuario_model->get_UsuariosPersona();
        $this->load->view("contador/asignarLote", $data);
    }
 
