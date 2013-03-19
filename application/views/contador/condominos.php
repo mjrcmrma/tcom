@@ -17,14 +17,29 @@ $hoy = getdate();
 <script>
     $(function(){
        
-       
+       $("#btn_nuevo").button();
+       $("#asignar").button();
 
-        $( "#asignar" ).click(function() {
-          $( "#main-content" ).load("<?php echo base_url();?>index.php/lotes/lote");
-        });
+//        $( "#asignar" ).click(function() {
+//          $( "#main-content" ).load("<?php echo base_url();?>index.php/lotes/lote");
+//        });
       
         $("#nacimiento" ).datepicker();
         $("#nacimiento" ).datepicker("option","dateFormat","yy-mm-dd");
+        var dialog = $("<div id='loteMostrar' />");
+        dialog.dialog({
+                                autoOpen: false,
+                                height: 900,
+                                width: 1058,
+                                modal: true,
+                                position: 'top' 
+                        });
+            $( "#asignarl" ).click(function() {
+                                        dialog.dialog( "open" );
+                                        dialog.html($('#ajax-loader').clone());
+                                        dialog.load(this.href);
+                                        return false;
+                                });
             
     });
 </script>
@@ -124,7 +139,7 @@ $hoy = getdate();
     <div id="aviso_ok">
         <img src="<?php echo base_url() ?>img/ok.png" /> <span class="aviso_contenido">La empresa se ha guardado correctamente</span>
     </div>
-    <button id="asignar">Asignar Lotes</button>
+    <button id="asignar"><a id ="asignarl"href="<?php echo base_url();?>index.php/lotes/lote">Asignar Lotes</a></button>
     <table id="tbl" width="100%" style="padding: 10px">
         <thead>
             <tr>
