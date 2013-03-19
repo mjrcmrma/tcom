@@ -59,7 +59,7 @@
                 $("#camaras").click(function(){
                     Cambiar();
                     CambiarCobra();
-                    $("#main-content").load("<?php echo base_url();?>index.php/vistas/camaras_view");
+                    $("#main-content").load("<?php echo base_url();?>index.php/camaras");
                 });
                 $("#conceptos").click(function(){
                     Cambiar(); 
@@ -69,7 +69,7 @@
                 $("#condominos").click(function(){
                     Cambiar(); 
                     CambiarCobra();
-                    $("#main-content").load("<?php echo base_url();?>index.php/vistas/mapa_view");
+                    $("#main-content").load("<?php echo base_url();?>index.php/lotes/lote");
                 });
         });
 </script>
@@ -232,7 +232,7 @@
     }
 </style>
 <div id="usuario">
-    <img src="<?php echo base_url();?>/img/welcome.png"/>&nbsp;&nbsp;<strong></strong>
+    <img src="<?php echo base_url();?>/img/welcome.png"/>&nbsp;&nbsp;<strong><?php echo $u['usuario'];?></strong>
 </div>
 <nav>
     <ul>
