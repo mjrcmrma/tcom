@@ -17,12 +17,19 @@ $hoy = getdate();
 <script>
     $(function(){
        
-       $(function() {
+       
+
+        $( "#asignar" ).click(function() {
+          $( "#main-content" ).load("<?php echo base_url();?>index.php/lotes/lote");
+        });
+      
         $("#nacimiento" ).datepicker();
         $("#nacimiento" ).datepicker("option","dateFormat","yy-mm-dd");
-            }); 
+            
     });
 </script>
+
+
 <style>
     .inner{
         padding: 5px;
@@ -110,12 +117,14 @@ $hoy = getdate();
             <div class="label"><label>Extensión</label></div> <div class="campo clearfix"><input type="text" name="extensionPersona" /></div>
             <div class="label"><label>Correo (otro)</label></div> <div class="campo clearfix"><input type="text" name="correoPersona" /></div>
             <div class="label"><label>Estado</label></div> <div class="campo clearfix"><input type="text" name="estado" /></div>
+            
             <div class="label">&nbsp;</div><div class="label"><input type="submit" class="submit" /></div>
         </form>
     </div>
     <div id="aviso_ok">
         <img src="<?php echo base_url() ?>img/ok.png" /> <span class="aviso_contenido">La empresa se ha guardado correctamente</span>
     </div>
+    <button id="asignar">Asignar Lotes</button>
     <table id="tbl" width="100%" style="padding: 10px">
         <thead>
             <tr>
@@ -158,4 +167,5 @@ $hoy = getdate();
             <?php endforeach; ?>
         </tbody>
     </table>
+    <div id="dialogo"></div>
 </div>
