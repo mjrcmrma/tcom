@@ -108,6 +108,11 @@ $hoy = getdate();
         background-color: #D1E6D2;
         border: 1px solid #245C26;
     }
+    #condominos{
+        cursor: pointer;
+        background-image: url("<?php echo base_url();?>/img/btn_active_condomino.png");
+        background-repeat:no-repeat; 
+    }
     
     #tbl{
         clear: both;
@@ -125,7 +130,7 @@ $hoy = getdate();
             <div class="label"><label>Nombre Condomino</label></div> <div class="campo clearfix"><input type="text" name="nombrePersona" /></div>
             <div class="label"><label>Apellido Paterno</label></div> <div class="campo clearfix"><input type="text" name="apellidoPatPersona" /></div>
             <div class="label"><label>Apellido Materno</label></div> <div class="campo clearfix"><input type="text" name="apellidoMatPersona" /></div>
-            <div class="label"><label>Fecha de nacimiento</label></div> <div class="campo clearfix"><input id="nacimiento" type="text" name="fechaNacimiento" /></div>
+            <div class="label"><label>Fecha de nacimiento</label></div> <div class="campo clearfix"><input id="nacimiento" type="datetime" name="fechaNacimiento" /></div>
             <div class="label"><label>Dirección</label></div> <div class="campo clearfix"><input type="text" name="direccionPersona" /></div>
             <div class="label"><label>Telefono</label></div> <div class="campo clearfix"><input type="text" name="telefonoPersona" /></div>
             <div class="label"><label>Celular</label></div> <div class="campo clearfix"><input type="text" name="celularPersona" /></div>
