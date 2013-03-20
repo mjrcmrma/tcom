@@ -1,15 +1,10 @@
 
     $(document).ready(function() {
-        var oTable = $('#tbl').dataTable({
+        var oTable = $('#tb2').dataTable({
             
             "oLanguage": {
                 "sUrl": "media/espaniol.txt"
             },
-            "sScrollX": "100%",
-		"sScrollXInner": "300%",
-                height: 600,
-                width: 12,
-		"bScrollCollapse": true,
             "fnDrawCallback": function( oSettings ) {
                 /* Apply the jEditable handlers to the table */
                 oTable.$('td').editable( url_editar, {
@@ -36,7 +31,18 @@
                     if(confirm('Esta seguro de eliminar este registro?')){
                         var row = $(this).closest("tr").get(0);
                         $.get($(this).attr('href'));
-                        $('#tbl').dataTable().fnDeleteRow($('#tbl').dataTable().fnGetPosition(row));
+                        $('#tb2').dataTable().fnDeleteRow($('#tb2').dataTable().fnGetPosition(row));
+                    }
+                });
+                
+                $(".tbl_update_row").off('click');
+                $(".tbl_update_row").click(function(e){
+                    e.preventDefault();
+                    if(confirm('Esta seguro de asignar este registro?')){
+                        var row = $(this).closest("tr").get(0);
+                        $.get($(this).attr('href'));
+                        alert("Registro actualizado recargar");
+                        dialog_compartir.dialog( "close" );
                     }
                 });
               }
@@ -61,7 +67,7 @@
                 });
                 var btns = '<a href="' + url_borrar + '/' + id + '" class="tbl_delete_row"><img src="/img/delete-icon.png" width="18"></a>';
                 data.push(btns);
-                $('#tbl').dataTable().fnAddData(data);
+                $('#tb2').dataTable().fnAddData(data);
                 $("#form_nuevo").get(0).reset();
                 $('#aviso_ok').slideDown(600).delay(2000).slideUp(500);
                 $("#nuevo").hide("blind");

@@ -33,7 +33,15 @@ class Condominos extends CI_Controller {
         $id2 = $this->abc_model->set("usuarios", $data0);
         echo $id2;
     }
-    
+    public function insert_lote($id, $lote){
+        $this->load->model("abc_model");
+        $data['idCondomino'] = $id;
+        $data['idLote'] = $lote;
+        $idc = $this->abc_model->set("usuariocondominio", $data);
+        $res = $this->abc_model->update("lotes",$lote,"lote","estado","0");
+       echo $idc;
+        
+        }
     
     public function borrar($id){
         $this->load->model("abc_model");
