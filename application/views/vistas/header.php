@@ -8,12 +8,40 @@
         <script src="<?php echo base_url(); ?>js/jquery.jeditable.js"></script>
         <link href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" type="text/css" rel="Stylesheet" />
 <script>
+    var id = "<?php echo $this->session->userdata("idUsuario");?>";
     $(function(){
         $('#detalles_not').hide();
         $('#notificaciones_box').click(function() {
             $('#detalles_not').toggle();
           });
+          
+          
     });
+    
+    setInterval(
+    function notificaciones(){
+        
+        $("#lista_not").empty();
+         $.getJSON("<?php echo base_url();?>server.php/mensajes/notificaciones/"+id, function(response){
+             
+             
+             $('#numero').html(response.cantidad);
+             if(response.cantidad === "0"){
+                 $("<li />").attr("class",".lista_not_element").html("<b>No hay ninguna notificación</b>").appendTo("#lista_not");
+             }
+         });
+         $.getJSON("<?php echo base_url();?>server.php/mensajes/contenido/"+id, function(data){
+             
+            $.each(data, function(i,item){
+               var ii = i+1; 
+                
+              $("<li />").attr("class",".lista_not_element").html(ii+". <strong>"+item.nombre+"</strong> "+item.mensaje).appendTo("#lista_not");
+            
+    
+            
+             });
+         });
+         },1000);
 </script>
         <style>
      	
@@ -133,16 +161,15 @@
     </head>
     <body>
         <header>
-            <div id="leer_info">
+            <div id="leer_info" for="detalles_not">
                 <img src="<?php echo base_url();?>/img/index_info.png"/>
             </div>
             <div id="notificaciones_box">
-                <span>1</span>
+                <span id="numero"></span>
             </div>
             <div id="detalles_not">
                 <ul id="lista_not">
-                    <li class="lista_not_element">1. Usted tiene una notificación de Doña toña</li>
-                    <li class="lista_not_element">2. Mañana se regalarán Paletas en casa de Juanita</li>
+                    
                 </ul>
             </div>
         </header>

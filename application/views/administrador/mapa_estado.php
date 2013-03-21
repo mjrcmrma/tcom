@@ -7,12 +7,13 @@
        	$('.map').maphilight({
             fade: false
         }); 
-        var dialog_compartir = $("<div />");
+        var dialog_compartir = $("<div id='loteDialog' tittle='Asignación de Lote'/>");
         dialog_compartir.dialog({
                                 autoOpen: false,
-                                height: 400,
-                                width: 400,
-                                modal: true
+                                height: 600,
+                                width: 900,
+                                modal: true,
+                                position: 'top' 
                         });
             $( ".lote" ).click(function() {
                                         dialog_compartir.dialog( "open" );

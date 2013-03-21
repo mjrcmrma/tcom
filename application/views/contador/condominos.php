@@ -17,14 +17,29 @@ $hoy = getdate();
 <script>
     $(function(){
        
-       
+       $("#btn_nuevo").button();
+       $("#asignar").button();
 
-        $( "#asignar" ).click(function() {
-          $( "#main-content" ).load("<?php echo base_url();?>index.php/lotes/lote");
-        });
+//        $( "#asignar" ).click(function() {
+//          $( "#main-content" ).load("<?php echo base_url();?>index.php/lotes/lote");
+//        });
       
         $("#nacimiento" ).datepicker();
         $("#nacimiento" ).datepicker("option","dateFormat","yy-mm-dd");
+        var dialog = $("<div id='loteMostrar' />");
+        dialog.dialog({
+                                autoOpen: false,
+                                height: 900,
+                                width: 1058,
+                                modal: true,
+                                position: 'top' 
+                        });
+            $( "#asignarl" ).click(function() {
+                                        dialog.dialog( "open" );
+                                        dialog.html($('#ajax-loader').clone());
+                                        dialog.load(this.href);
+                                        return false;
+                                });
             
     });
 </script>
@@ -93,6 +108,11 @@ $hoy = getdate();
         background-color: #D1E6D2;
         border: 1px solid #245C26;
     }
+    #condominos{
+        cursor: pointer;
+        background-image: url("<?php echo base_url();?>/img/btn_active_condomino.png");
+        background-repeat:no-repeat; 
+    }
     
     #tbl{
         clear: both;
@@ -110,7 +130,7 @@ $hoy = getdate();
             <div class="label"><label>Nombre Condomino</label></div> <div class="campo clearfix"><input type="text" name="nombrePersona" /></div>
             <div class="label"><label>Apellido Paterno</label></div> <div class="campo clearfix"><input type="text" name="apellidoPatPersona" /></div>
             <div class="label"><label>Apellido Materno</label></div> <div class="campo clearfix"><input type="text" name="apellidoMatPersona" /></div>
-            <div class="label"><label>Fecha de nacimiento</label></div> <div class="campo clearfix"><input id="nacimiento" type="text" name="fechaNacimiento" /></div>
+            <div class="label"><label>Fecha de nacimiento</label></div> <div class="campo clearfix"><input id="nacimiento" type="datetime" name="fechaNacimiento" /></div>
             <div class="label"><label>Dirección</label></div> <div class="campo clearfix"><input type="text" name="direccionPersona" /></div>
             <div class="label"><label>Telefono</label></div> <div class="campo clearfix"><input type="text" name="telefonoPersona" /></div>
             <div class="label"><label>Celular</label></div> <div class="campo clearfix"><input type="text" name="celularPersona" /></div>
@@ -124,7 +144,7 @@ $hoy = getdate();
     <div id="aviso_ok">
         <img src="<?php echo base_url() ?>img/ok.png" /> <span class="aviso_contenido">La empresa se ha guardado correctamente</span>
     </div>
-    <button id="asignar">Asignar Lotes</button>
+    <button id="asignar"><a id ="asignarl"href="<?php echo base_url();?>index.php/lotes/lote">Asignar Lotes</a></button>
     <table id="tbl" width="100%" style="padding: 10px">
         <thead>
             <tr>

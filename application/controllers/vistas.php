@@ -22,7 +22,7 @@ class Vistas extends CI_Controller {
                     $data['u'] = $this->rest->post("server.php/usuarios/usuario/", 
                         array('idUsuario'=> $this->session->userdata('idUsuario')),
                         'json');
-//                           echo $this->rest->debug();
+
                     $tipo = $this->rest->post("server.php/usuarios/tipo_usuario/", 
                         array('idUsuario'=> $this->session->userdata('idUsuario')),
                         'json');
@@ -60,7 +60,7 @@ class Vistas extends CI_Controller {
             $this->load->view('vistas/header');
             $this->load->view('vistas/login');
             $this->load->view('vistas/footer');
-        }
+}
         
         //Contador
         public function empleados_view(){
@@ -89,16 +89,13 @@ class Vistas extends CI_Controller {
             $data["empresas"] = $this->abc_model->get("empresas");
             $this->load->view('empresas/lista',$data);
         }
-        public function asignar_view($a){
-            $data['a'] = $a;
-            $this->load->view('contador/asignarLote', $data);
-        }
 
         public function mapa_view(){
-            $this->load->model("abc_model");
-            $data["usuarios"] = $this->abc_model->get_UsuariosPersona();
+            $this->load->model("usuario_model");
+            $data["usuarios"] = $this->usuario_model->get_UsuariosPersona();
             $this->load->view('contador/condominos',$data);
         }
+
         
         public function articulosamenidad_view(){
             $data["amenidades"] = $this->articulosamenidades_model->get_Amenidades();
@@ -110,6 +107,14 @@ class Vistas extends CI_Controller {
         	$this->load->view('articulosamenidad/lista',$data);
         }
         
+
+        public function notificacionesA_view($id){
+            $this->load->model("mensaje_model");
+            $data["mensajes"] = $this->mensaje_model->get_where($id);
+            $this->load->view('contador/notificaciones',$data);
+        }
+
+
         //Condomino
         public function eventos_view(){
             $this->load->view('condomino/eventosCondo');
@@ -161,6 +166,8 @@ class Vistas extends CI_Controller {
             $this->load->view('condomino/eventos/publicar');
         }
         
+
+
         //Seguridad
         public function navegadorS_view(){
             $this->load->view('seguridad/navegacionSeguridad');

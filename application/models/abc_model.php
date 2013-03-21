@@ -5,12 +5,11 @@ class Abc_model extends CI_Model{
 //        echo $this->db->last_query();
         return $q->result_Array();
     }
-    
-    public function get_UsuariosPersona(){
-        $q = $this->db->query("SELECT * FROM usuarios AS u, personas AS p WHERE u.`idPersona`=p.`idPersona` GROUP BY idUsuario");
-//        echo $this->db->last_query();
+    function get_where($table, $idfield, $id){
+        $q = $this->db->get_where($table, array($idfield => $id));
         return $q->result_Array();
     }
+            
     function set($tabla, $data){
         $this->db->insert($tabla,$data);
         return $this->db->insert_id();
