@@ -70,7 +70,15 @@
                     Cambiar(); 
                     CambiarCobra();
                     $("#main-content").load("<?php echo base_url();?>index.php/vistas/mapa_view");
+                    alert("***");
                 });
+                //REMP
+                $("#amenidades").click(function(){
+                    Cambiar(); 
+                    CambiarCobra();
+                $("#main-content").load("<?php echo base_url();?>index.php/vistas/articulosamenidad_lista_view");
+                });
+                
         });
 </script>
 <style>
@@ -230,6 +238,14 @@
         position: relative;
         top: 10px;
     }
+    #amenidades{
+        background: url('<?php echo base_url();?>/img/btn_articulosamenidad.png');
+    }
+    #amenidades:hover{
+        cursor: pointer;
+        background-image: url("<?php echo base_url();?>/img/btn_active_articulosamenidad.png");
+        background-repeat:no-repeat; 
+    }
 </style>
 <div id="usuario">
     <img src="<?php echo base_url();?>/img/welcome.png"/>&nbsp;&nbsp;<strong></strong>
@@ -257,6 +273,7 @@
         <li id="conceptos"></li>
         <li id="ocompra"></li>
         <li id="camaras"></li>
+        <li id="amenidades"></li>
         <a href="<?php echo base_url();?>index.php/usuarios/logout"><li id="salir"></li></a>
     </ul>
 </nav>

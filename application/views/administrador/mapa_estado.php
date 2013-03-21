@@ -70,7 +70,7 @@
         <?php elseif ($l['estado'] == 2): ?>
             <area class="lote" class="{strokeColor: 'ffff00',fillColor:'ffff00'}" href="<?php echo base_url(); ?>index.php/lotes/loteVer/<?php echo $l['idLote'];?>" shape="POLYGON" coords="<?php echo $l['coordenadas'];?>" title="<?php echo $l['lote'];?>"/>
         <?php else: ?>
-            <area class="lote" onmouseover="ctx.scale(2, 2);" href="<?php echo base_url(); ?>index.php/lotes/loteVer/<?php echo $l['idLote'];?>" shape="POLYGON" coords="<?php echo $l['coordenadas'];?>" title="<?php echo $l['lote'];?>"/>
+            <area class="lote" href="<?php echo base_url(); ?>index.php/lotes/loteVer/<?php echo $l['idLote'];?>" shape="POLYGON" coords="<?php echo $l['coordenadas'];?>" title="<?php echo $l['lote'];?>"/>
         <?php endif;?>
     <?php endforeach; ?>
 </map>
